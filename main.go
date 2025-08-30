@@ -113,6 +113,33 @@ func nameInput (){
 func getNames () (string, string){
 	return "Bukola", "Olagunju"
 }
+
+//explict & implicit return ---functions
+func yearUntilEvent (age int)(
+yearUntilAdult,  yearUntilLegal,  yearUntilUni int){
+	yearUntilAdult = 18 - age
+	if yearUntilAdult < 0{
+		yearUntilAdult = 0
+	}
+yearUntilLegal = 21 - age
+	if yearUntilLegal < 0{
+		yearUntilLegal = 0
+	}
+	yearUntilUni = 16 - age
+	if yearUntilUni < 0{
+		yearUntilUni = 0
+	}
+return
+}
+
+func testAge(age int){
+	fmt.Println("Age:", age)
+	yearUntilAdult, yearUntilLegal, yearUntilUni := yearUntilEvent(age);
+	fmt.Println("you're an adult in", yearUntilAdult, "years")
+	fmt.Println("you're legal until", yearUntilLegal, "years")
+	fmt.Println("youre not in uni until", yearUntilUni, "years")
+	fmt.Println("==================")
+}
 func main() {
 	examples()
 	conditionals()
@@ -122,4 +149,8 @@ func main() {
 	fmt.Println(add(10, 2))
 	sentMessages()
 	nameInput()
+	testAge(16)
+	testAge(12)
+	testAge(0)
+
 }
