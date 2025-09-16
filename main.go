@@ -140,6 +140,27 @@ func testAge(age int){
 	fmt.Println("youre not in uni until", yearUntilUni, "years")
 	fmt.Println("==================")
 }
+
+//explicit returns
+func cordinates() (x, y int){
+	return x, y
+}
+
+
+//explicit returns
+
+func swap (string1, string2 string) (string, string){
+return string2, string1
+}
+
+func PrintSwap (){
+	a, b := swap("hello", "world")
+	fmt.Println(a,b)
+}
+
+var namePrnt string = "ola" //works outside function
+var namePrint := "hello"//works only withing a function block
+
 func main() {
 	examples()
 	conditionals()
@@ -152,5 +173,6 @@ func main() {
 	testAge(16)
 	testAge(12)
 	testAge(0)
-
+	cordinates()
+	PrintSwap()
 }
