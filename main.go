@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // variable declarations
 func variables() {
@@ -157,9 +160,20 @@ func PrintSwap (){
 	a, b := swap("hello", "world")
 	fmt.Println(a,b)
 }
-
+var num1, num2 int = 10,12
+var sqrt = math.Sqrt(float64(num1*num1 + num2*num2))
+var sqrtUint uint = uint(sqrt)
 var namePrnt string = "ola" //works outside function
-var namePrint := "hello"//works only withing a function block
+// var namePrint := "hello"works only withing a function block
+
+// for loop
+func loop(){
+	loopSum := 0;
+	for i :=0; i < 10; i++{
+		loopSum += 1
+		}
+		fmt.Println(loopSum)
+}
 
 func main() {
 	examples()
@@ -175,4 +189,7 @@ func main() {
 	testAge(0)
 	cordinates()
 	PrintSwap()
+	println(sqrt, sqrtUint)
+	println( sqrtUint)
+	loop()
 }
