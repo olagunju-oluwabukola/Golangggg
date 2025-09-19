@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"time"
 )
 
 // variable declarations
@@ -160,6 +161,53 @@ func PrintSwap (){
 	a, b := swap("hello", "world")
 	fmt.Println(a,b)
 }
+
+func week (){
+	today := time.Now().Weekday()
+	// fmt.Println(today)
+
+	switch time.Saturday{
+	case today + 0:
+		fmt.Println("today")
+	case today + 1 :
+		fmt.Println("tomorrow")
+	case today - 2 :
+		fmt.Println("in two days")
+	default:
+	fmt.Println("too far away")
+	}
+
+	fmt.Println(today)
+}
+
+func getTime (){
+	t:=time.Now()
+	// fmt.Println(t)
+	switch {
+	case t.Hour() > 12 && t.Hour() < 17:
+		fmt.Println("good afternooon")
+			case t.Hour() >= 17 && t.Hour()< 23:
+		fmt.Println("good evening")
+	case t.Hour() < 12:
+		fmt.Println("good morning")
+	default:
+		fmt.Println("good whatever")
+	}
+
+}
+//when defer is used, the value or function on which it was used is first checked and after, is passses into a stack, then it executes last after all the file before or after it in the same code block is exected
+
+func deferTest (){
+	fmt.Println("counting")
+
+	for h := 0; h <= 10; h++{
+		defer fmt.Println(h)
+	}
+
+
+	fmt.Println("done")
+}
+
 var num1, num2 int = 10,12
 var sqrt = math.Sqrt(float64(num1*num1 + num2*num2))
 var sqrtUint uint = uint(sqrt)
@@ -192,4 +240,7 @@ func main() {
 	println(sqrt, sqrtUint)
 	println( sqrtUint)
 	loop()
+	week()
+	getTime()
+	deferTest()
 }
