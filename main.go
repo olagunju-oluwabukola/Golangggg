@@ -195,7 +195,7 @@ func getTime (){
 	}
 
 }
-//when defer is used, the value or function on which it was used is first checked and after, is passses into a stack, then it executes last after all the file before or after it in the same code block is exected
+//when defer is used, the value or function on which it was used is first checked and after, is passses into a stack, then it executes last after all the file before or after it in the same code block is exected - it's used in pushing the execution of a funtion to last statement
 
 func deferTest (){
 	fmt.Println("counting")
@@ -223,6 +223,67 @@ func loop(){
 		fmt.Println(loopSum)
 }
 
+
+// reference types : pointers
+
+func point(){
+	point1, point2 := 90, 100
+
+	l := &point1
+	m := &point2
+	fmt.Println(*l,*m)
+
+	*l = *l *2
+	*m = *m / 10
+	fmt.Println("new value of point 1 is ",point1, "   new value of point2 is", point2)
+}
+
+
+// Agreegate dataTypes: array and structs
+
+// structs can take multiple data types but array can't
+
+type vertex struct {
+	struct1 string
+	struct2 int
+	struct3 bool
+}
+
+func structOutput () {
+	// fmt.Println(vertex{"bukola", 10, true})
+	// v := vertex{struct1 :"bukola", struct2: 10,struct3:  true}
+	v := vertex{"bukola",  10, true}
+	v.struct1 = "ola"
+	v.struct2 = v.struct2*2
+
+	fmt.Println(v)
+}
+
+
+
+func structPointers (){
+		vp  := vertex{"bukola", 10, true}
+		structPoint := &vp
+		structPoint.struct1 = "something"
+		structPoint.struct2 = vp.struct2 * 10
+		fmt.Println(vp)
+		fmt.Println(structPoint)
+}
+
+
+// arrays
+
+func myArrays (){
+	var sArray [2] string
+	sArray[0] = "hello"
+	sArray[1]= "world"
+	fmt.Println(sArray)
+	fmt.Println(sArray[0], sArray[1])
+
+	evenNum := [6] int {3,5,7,11,13,17}
+	fmt.Println(evenNum)
+}
+
 func main() {
 	examples()
 	conditionals()
@@ -243,4 +304,8 @@ func main() {
 	week()
 	getTime()
 	deferTest()
+	 point()
+	 structOutput()
+	 structPointers()
+	 myArrays()
 }
