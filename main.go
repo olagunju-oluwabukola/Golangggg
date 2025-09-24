@@ -281,9 +281,30 @@ func myArrays (){
 	fmt.Println(sArray[0], sArray[1])
 
 	evenNum := [6] int {3,5,7,11,13,17}
-	fmt.Println(evenNum)
+	fmt.Println(evenNum   )
 }
 
+//slices
+func sliceArray (){
+	herNames := [6] string {"nola", "damola", "magret", "fola", "gbade", "simi"}
+	fmt.Println(herNames)
+	var sliceTest []string = herNames[2:5] //show only array between the index of 2 and 4
+	fmt.Println(sliceTest)
+}
+
+func sliceReference (){
+	referenceArray := [5] string {"john", "wesley", "Haggin", "Myles", "Abraham"}
+	fmt.Println(referenceArray)
+
+	var slice1 = referenceArray[2:4]
+	var slice2 = referenceArray[1:5]
+	fmt.Println(slice1, slice2 )
+
+	slice2[1] = "something esle"
+	fmt.Println(slice1, slice2 )
+		fmt.Println(referenceArray)
+
+}
 func main() {
 	examples()
 	conditionals()
@@ -308,4 +329,6 @@ func main() {
 	 structOutput()
 	 structPointers()
 	 myArrays()
+	 sliceArray()
+	 sliceReference()
 }
