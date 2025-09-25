@@ -305,6 +305,12 @@ func sliceReference (){
 		fmt.Println(referenceArray)
 
 }
+//make can be used for initializing reference data types
+func makeRef (){
+	make1 := make([] int, 5)
+	fmt.Println("make 1", make1)
+
+}
 func main() {
 	examples()
 	conditionals()
@@ -331,4 +337,5 @@ func main() {
 	 myArrays()
 	 sliceArray()
 	 sliceReference()
+	 makeRef()
 }
